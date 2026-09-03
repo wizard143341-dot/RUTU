@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Rutu — A Digital Love Letter</title>
+  <meta name="description" content="A personal cinematic experience and interactive love letter for Sanskriti (Rutu). Happy Birthday.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="loading">
+
+  <!-- Grain & Ambient Noise Overlay -->
+  <div class="film-grain" aria-hidden="true"></div>
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- Custom Cursor for Desktop -->
+  <div class="custom-cursor" id="customCursor" aria-hidden="true">
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring">
+      <span class="cursor-text" id="cursorText"></span>
+    </div>
+  </div>
+
+  <!-- Ambient Sound & Media Controls -->
+  <header class="experience-nav" role="banner">
+    <div class="nav-brand">
+      <span class="brand-monogram">R &bull; H</span>
+    </div>
+    <div class="nav-actions">
+      <button class="sound-toggle-btn" id="soundToggle" aria-label="Toggle ambient soundtrack" title="Play ambient sound">
+        <span class="sound-icon-wave">
+          <span></span><span></span><span></span><span></span>
+        </span>
+        <span class="sound-label" id="soundLabel">Sound On</span>
+      </button>
+      <button class="video-modal-btn" id="videoModalBtn" aria-label="Open Birthday Montage Reel" title="Watch our special video">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+        <span>Our Reel</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Audio Element for Pehle Bhi Main / Montage Audio -->
+  <audio id="soundtrackAudio" preload="auto" loop playsinline>
+    <source src="photos/lv_7680106392031726856_20260903182956.mp4" type="video/mp4">
+  </audio>
+
+  <!-- Video Reel Modal -->
+  <div class="reel-modal" id="reelModal" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="reel-backdrop" id="reelBackdrop"></div>
+    <div class="reel-content">
+      <button class="reel-close-btn" id="reelCloseBtn" aria-label="Close video reel">&times;</button>
+      <div class="reel-video-wrapper">
+        <video id="reelVideo" playsinline controls loop>
+          <source src="images/birthday-montage-song.mp4" type="video/mp4">
+          <source src="photos/lv_7680106392031726856_20260903182956.mp4" type="video/mp4">
+        </video>
+      </div>
+      <p class="reel-caption">Happiest Birthday My September &bull; <span class="font-handwritten">&lt;3</span></p>
+    </div>
+  </div>
+
+  <!-- ==================== ACT 0: OPENING SCREEN ==================== -->
+  <section class="screen-opening" id="screenOpening" aria-label="Welcome">
+    <div class="opening-container">
+      <p class="opening-whisper animate-fade-in">For someone who deserves to slow down for a minute.</p>
+      <div class="opening-hero-title">
+        <h1 class="title-rutu">RUTU</h1>
+        <p class="opening-subtext">yes. this one is for you.</p>
+      </div>
+      <div class="opening-action">
+        <button class="btn-enter" id="btnEnter" data-cursor="enter">
+          <span>Come in</span>
+          <svg class="arrow-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+      <p class="opening-tip">Best experienced with sound &amp; headphones</p>
+    </div>
+  </section>
+
+  <!-- MAIN SCROLLING CINEMATIC STORY -->
+  <main id="mainExperience" class="experience-hidden" role="main">
+
+    <!-- ==================== ACT 1 & HERO: HAPPY BIRTHDAY RUTU ==================== -->
+    <section class="section-hero" id="actHero" aria-label="Happy Birthday Rutu">
+      <div class="hero-bg-container">
+        <div class="hero-image-wrap parallax-element" data-speed="0.08">
+          <img src="images/rutu-rooftop-night.jpg" alt="Sanskriti smiling at rooftop cafe" class="hero-img" loading="eager">
+          <div class="hero-vignette"></div>
+        </div>
+      </div>
+      <div class="hero-content">
+        <div class="hero-header">
+          <span class="eyebrow-tag reveal-text">ACT I &bull; HEY, RUTU</span>
+          <h2 class="hero-headline reveal-text">
+            <span>Happy Birthday,</span>
+            <span class="highlight-serif">Rutu.</span>
+          </h2>
+        </div>
+        <div class="hero-subline reveal-text">
+          <p class="lead-quote">Before anything else…</p>
+          <p class="lead-emphasis">I want you to know how proud I am of you.</p>
+        </div>
+        <div class="scroll-cue" aria-hidden="true">
+          <span class="cue-label">Scroll to begin our story</span>
+          <div class="cue-line"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 2: I SEE YOU ==================== -->
+    <section class="section-act section-see-you" id="actSeeYou" aria-label="I See You">
+      <div class="container">
+        <div class="act-header">
+          <span class="act-number">ACT II</span>
+          <h2 class="section-title">I see you.</h2>
+        </div>
+
+        <div class="see-you-grid">
+          <div class="see-you-text-col">
+            <div class="reveal-card">
+              <span class="bullet-glow"></span>
+              <p class="see-statement">The girl who keeps going.</p>
+            </div>
+            <div class="reveal-card">
+              <span class="bullet-glow"></span>
+              <p class="see-statement">The girl who takes her goals seriously.</p>
+            </div>
+            <div class="reveal-card">
+              <span class="bullet-glow"></span>
+              <p class="see-statement">The girl who studies when everyone else is relaxing.</p>
+            </div>
+            <div class="reveal-card">
+              <span class="bullet-glow"></span>
+              <p class="see-statement">The girl who wants more from life.</p>
+            </div>
+            <div class="reveal-card">
+              <span class="bullet-glow"></span>
+              <p class="see-statement">The girl who is quietly building her future.</p>
+            </div>
+            <div class="admire-quote-box">
+              <p class="quote-text">“Your ambition is not just something you have. It’s one of the things I love most about you.”</p>
+            </div>
+          </div>
+
+          <div class="see-you-media-col">
+            <div class="portrait-card-stack" data-cursor="look">
+              <div class="media-polaroid rotate-slight">
+                <img src="images/rutu-playful-cap.jpg" alt="Rutu looking cute and confident" loading="lazy">
+                <span class="polaroid-caption">unshakable &amp; focused &hearts;</span>
+              </div>
+              <div class="floating-accent-tag">
+                <span>ambition &bull; discipline &bull; heart</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 3: BUT RUTU... ==================== -->
+    <section class="section-act section-but-rutu theme-warm" id="actButRutu" aria-label="A gentle pause">
+      <div class="container container-narrow">
+        <div class="pause-header text-center">
+          <span class="act-number">ACT III</span>
+          <h2 class="pause-title reveal-text">But Rutu…</h2>
+          <p class="pause-subtitle reveal-text">You work hard. Sometimes way too hard.</p>
+        </div>
+
+        <div class="unlearning-sequence">
+          <div class="unlearning-row reveal-fade">
+            <span class="strike-marker"></span>
+            <p class="unlearning-text">You don't always have to be productive.</p>
+          </div>
+          <div class="unlearning-row reveal-fade">
+            <span class="strike-marker"></span>
+            <p class="unlearning-text">You don't always have to have a plan.</p>
+          </div>
+          <div class="unlearning-row reveal-fade">
+            <span class="strike-marker"></span>
+            <p class="unlearning-text">You don't always have to be the strongest person in the room.</p>
+          </div>
+        </div>
+
+        <div class="statement-hero-box text-center">
+          <p class="whisper-above">You don't have to earn love through achievement.</p>
+          <h3 class="living-statement">Sometimes… just live.</h3>
+        </div>
+
+        <!-- Floating organic words -->
+        <div class="floating-words-cloud" aria-hidden="true">
+          <span class="float-word" style="--delay: 0s; --top: 10%; --left: 8%;">breathe</span>
+          <span class="float-word" style="--delay: 1.5s; --top: 25%; --left: 80%;">laugh</span>
+          <span class="float-word" style="--delay: 2.2s; --top: 60%; --left: 12%;">wander</span>
+          <span class="float-word" style="--delay: 0.8s; --top: 75%; --left: 76%;">eat</span>
+          <span class="float-word" style="--delay: 3s; --top: 40%; --left: 88%;">dance</span>
+          <span class="float-word" style="--delay: 1.8s; --top: 85%; --left: 30%;">sleep</span>
+          <span class="float-word" style="--delay: 2.5s; --top: 15%; --left: 55%;">travel</span>
+          <span class="float-word" style="--delay: 1.2s; --top: 68%; --left: 58%;">do nothing</span>
+        </div>
+
+        <div class="peace-image-wrapper">
+          <div class="peace-frame" data-cursor="peace">
+            <img src="images/rutu-eyes-closed-peace.jpg" alt="Rutu resting peacefully with a soft smile" loading="lazy">
+            <div class="frame-tag">sunsets &bull; long talks &bull; zero hurry</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 4: INTERACTIVE "TAKE A BREATH" ==================== -->
+    <section class="section-act section-breathe" id="actBreathe" aria-label="Take a breath interactive exercise">
+      <div class="container text-center">
+        <div class="breathe-intro">
+          <span class="act-number">ACT IV &bull; A LITTLE MOMENT FOR YOU</span>
+          <h2 class="breathe-headline">Okay. Seriously.</h2>
+          <div class="breathe-instructions">
+            <p>Put your shoulders down.</p>
+            <p>Unclench your jaw.</p>
+            <p>You don't have to rush this.</p>
+          </div>
+        </div>
+
+        <div class="breath-orb-container">
+          <div class="breath-orb-stage">
+            <div class="breath-aura"></div>
+            <div class="breath-glow-ring"></div>
+            <div class="breath-orb" id="breathOrb" data-cursor="hold">
+              <span class="breath-state-text" id="breathStateText">Press &amp; Hold</span>
+              <span class="breath-sub-prompt" id="breathSubPrompt">to inhale</span>
+            </div>
+          </div>
+          <p class="breath-hint-mobile">Press and hold the circle</p>
+        </div>
+
+        <div class="breath-feedback-box" id="breathFeedbackBox">
+          <p class="calm-conclusion" id="calmConclusion">
+            <span>See?</span>
+            <span class="calm-highlight">Life is allowed to feel this slow sometimes.</span>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 5: MEMORY GALLERY ==================== -->
+    <section class="section-act section-memories" id="actMemories" aria-label="Our memories">
+      <div class="container">
+        <div class="memories-intro text-center">
+          <span class="act-number">ACT V &bull; WE ALSO BECAME US</span>
+          <p class="memories-line-1 reveal-text">Somewhere between all the serious stuff…</p>
+          <h2 class="memories-line-2 reveal-text">We also became us.</h2>
+          <p class="memories-line-3 reveal-text">And these are the moments I want to remember forever.</p>
+        </div>
+      </div>
+
+      <!-- Horizontal Drag & Wheel Filmstrip -->
+      <div class="filmstrip-viewport" id="filmstripViewport">
+        <div class="filmstrip-track" id="filmstripTrack">
+
+          <!-- Memory 1: Cafe Couple -->
+          <article class="memory-card" data-cursor="look">
+            <div class="memory-photo-wrap">
+              <img src="images/hassan-rutu-cafe.jpg" alt="Hassan and Rutu at a cafe" loading="lazy">
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">this one.</p>
+              <span class="caption-sub">our quiet afternoons</span>
+            </div>
+          </article>
+
+          <!-- Memory 2: Traditional Wink -->
+          <article class="memory-card card-tilt-right" data-cursor="look">
+            <div class="memory-photo-wrap">
+              <img src="images/rutu-traditional-wink.png" alt="Rutu winking with flower in hair" loading="lazy">
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">you were cute here.</p>
+              <span class="caption-sub">that flower &bull; that wink</span>
+            </div>
+          </article>
+
+          <!-- Memory 3: Playful Video Clip -->
+          <article class="memory-card memory-video-card" data-cursor="play">
+            <div class="memory-photo-wrap video-container">
+              <video muted autoplay loop playsinline poster="images/rutu-rooftop-night.jpg">
+                <source src="images/couple-moment.mp4" type="video/mp4">
+              </video>
+              <div class="video-pill-tag">motion memory</div>
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">I still remember this.</p>
+              <span class="caption-sub">you being effortlessly you</span>
+            </div>
+          </article>
+
+          <!-- Memory 4: Intimate Couple Portrait -->
+          <article class="memory-card card-tilt-left" data-cursor="look">
+            <div class="memory-photo-wrap">
+              <img src="images/hassan-rutu-portrait.jpg" alt="Hassan and Rutu cozy couple portrait" loading="lazy">
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">one of my favorites.</p>
+              <span class="caption-sub">right where I want to be</span>
+            </div>
+          </article>
+
+          <!-- Memory 5: Candid Pink Top Video -->
+          <article class="memory-card memory-video-card card-tilt-right" data-cursor="play">
+            <div class="memory-photo-wrap video-container">
+              <video muted autoplay loop playsinline poster="images/rutu-eyes-closed-peace.jpg">
+                <source src="images/rutu-pink-candid.mp4" type="video/mp4">
+              </video>
+              <div class="video-pill-tag">candid</div>
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">unfiltered you.</p>
+              <span class="caption-sub">pure smile, no pretense</span>
+            </div>
+          </article>
+
+          <!-- Memory 6: Rooftop Night Portrait -->
+          <article class="memory-card" data-cursor="look">
+            <div class="memory-photo-wrap">
+              <img src="images/rutu-rooftop-night.jpg" alt="Rutu at rooftop cafe at night" loading="lazy">
+              <div class="photo-tape"></div>
+            </div>
+            <div class="memory-caption-box">
+              <p class="caption-handwritten">that night on the roof.</p>
+              <span class="caption-sub">city lights below us</span>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div class="filmstrip-controls">
+        <span class="drag-hint">&larr; Drag or scroll sideways &rarr;</span>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 6: THE TRUST ==================== -->
+    <section class="section-act section-trust" id="actTrust" aria-label="A quiet conversation about trust">
+      <div class="container container-reading">
+        <div class="trust-content">
+          <span class="act-number">ACT VI &bull; THE TRUST</span>
+          
+          <div class="trust-passage">
+            <h2 class="trust-title reveal-text">There is one thing I don't think I tell you enough.</h2>
+            
+            <p class="trust-p reveal-text">I notice how much you trust me.</p>
+            
+            <div class="trust-pause-block reveal-text">
+              <p class="trust-whisper">And honestly…</p>
+              <p class="trust-depth">It means more to me than you probably realize.</p>
+            </div>
+
+            <div class="trust-media-spotlight reveal-fade">
+              <div class="spotlight-frame" data-cursor="intimacy">
+                <img src="images/hassan-rutu-portrait.jpg" alt="Hassan and Rutu looking tenderly at camera" loading="lazy">
+                <div class="spotlight-vignette"></div>
+              </div>
+            </div>
+
+            <div class="trust-climax reveal-text">
+              <p class="trust-final-p">Every time you trust me with another little piece of your world…</p>
+              <h3 class="trust-heart-statement">somehow, I fall for you a little harder.</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 7: WHEN LIFE GETS HARD ==================== -->
+    <section class="section-act section-hardship" id="actHardship" aria-label="Beside you">
+      <div class="container container-reading">
+        <div class="hardship-header text-center">
+          <span class="act-number">ACT VII &bull; SAFE HARBOR</span>
+          <h2 class="hardship-title reveal-text">And when life gets difficult…</h2>
+          <p class="hardship-subtitle reveal-text">You don't have to figure everything out alone.</p>
+        </div>
+
+        <div class="promises-list">
+          <div class="promise-item reveal-text">
+            <span class="promise-dot"></span>
+            <p>I'll listen.</p>
+          </div>
+          <div class="promise-item reveal-text">
+            <span class="promise-dot"></span>
+            <p>I'll sit with you in silence when words aren't enough.</p>
+          </div>
+          <div class="promise-item reveal-text">
+            <span class="promise-dot"></span>
+            <p>I'll remind you who you are when you forget.</p>
+          </div>
+          <div class="promise-item reveal-text">
+            <span class="promise-dot"></span>
+            <p>I'll celebrate your tiniest victories.</p>
+          </div>
+          <div class="promise-item reveal-text promise-playful">
+            <span class="promise-dot"></span>
+            <p>I'll annoy you.</p>
+            <span class="playful-aside">(Probably annoy you quite a lot, actually. That's a given.)</span>
+          </div>
+          <div class="promise-item reveal-text">
+            <span class="promise-dot"></span>
+            <p>But above everything else: I'll be there.</p>
+          </div>
+        </div>
+
+        <!-- Kinetic Typography Docking: "Beside You" -->
+        <div class="docking-stage" id="dockingStage">
+          <div class="docking-wrapper">
+            <span class="dock-word dock-beside" id="dockBeside">Beside</span>
+            <span class="dock-word dock-you" id="dockYou">you.</span>
+          </div>
+          <p class="docking-subtext">Always within arm’s reach.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 8: YOU WON ==================== -->
+    <section class="section-act section-you-won" id="actYouWon" aria-label="Celebration of you">
+      <div class="you-won-background-light" id="wonBgLight"></div>
+      <div class="container container-reading text-center">
+        <div class="won-header">
+          <span class="act-number">ACT VIII &bull; THE TRUTH</span>
+          <p class="won-lead reveal-text">You know what I think?</p>
+          <h2 class="won-banner reveal-text">You won.</h2>
+        </div>
+
+        <div class="won-reasons">
+          <p class="reason-p reveal-text">You won because you became someone you can be genuinely proud of.</p>
+          <p class="reason-p reveal-text">You won because you kept going, even on the quiet days nobody saw.</p>
+          <p class="reason-p reveal-text">You won because you still have dreams that make your eyes sparkle.</p>
+          <p class="reason-p reveal-text">You won because there is so much life waiting for you.</p>
+        </div>
+
+        <div class="won-shift">
+          <p class="shift-lead reveal-text">And honestly, from where I’m sitting…</p>
+          <p class="shift-sub reveal-text">I think I won too.</p>
+          <h3 class="shift-climax reveal-text">Because I got to meet you.</h3>
+        </div>
+
+        <div class="won-accent-photo reveal-fade" data-cursor="smile">
+          <div class="won-frame">
+            <img src="images/hassan-rutu-cafe.jpg" alt="Hassan and Rutu smiling together" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 9: YOUR LIFE IS GOING TO BE HUGE ==================== -->
+    <section class="section-act section-future" id="actFuture" aria-label="Your Future">
+      <div class="future-sky-backdrop"></div>
+      <canvas id="starsCanvas" class="stars-canvas" aria-hidden="true"></canvas>
+
+      <div class="container">
+        <div class="future-intro text-center">
+          <span class="act-number">ACT IX &bull; HORIZONS</span>
+          <h2 class="future-title reveal-text">There is so much life waiting for you.</h2>
+          <p class="future-subtitle reveal-text">Your story is only just beginning.</p>
+        </div>
+
+        <div class="future-constellation-grid">
+          <div class="constellation-card reveal-card">
+            <span class="card-num">01</span>
+            <h4 class="card-h">places you've never seen</h4>
+            <p>Streets you'll walk down, oceans you'll watch, cities that will steal your breath.</p>
+          </div>
+          <div class="constellation-card reveal-card">
+            <span class="card-num">02</span>
+            <h4 class="card-h">goals you haven't reached yet</h4>
+            <p>Every single dream you're working so hard for right now. You will touch them.</p>
+          </div>
+          <div class="constellation-card reveal-card">
+            <span class="card-num">03</span>
+            <h4 class="card-h">mornings you haven't woken up to</h4>
+            <p>Slow sunlit Sundays with nowhere to rush, coffee in hand, completely at peace.</p>
+          </div>
+          <div class="constellation-card reveal-card">
+            <span class="card-num">04</span>
+            <h4 class="card-h">people you'll inspire</h4>
+            <p>The quiet warmth and fierce determination you bring wherever you walk.</p>
+          </div>
+          <div class="constellation-card reveal-card card-span-2">
+            <span class="card-num">05</span>
+            <h4 class="card-h">versions of yourself you haven't met yet</h4>
+            <p>Older, wiser, softer, even more radiant than you are today.</p>
+          </div>
+        </div>
+
+        <!-- Twirling Video Moment -->
+        <div class="future-video-stage reveal-fade">
+          <div class="future-video-circle" data-cursor="radiance">
+            <video muted autoplay loop playsinline>
+              <source src="images/rutu-twirl-radiant.mp4" type="video/mp4">
+            </video>
+            <div class="circle-ring-aura"></div>
+          </div>
+          <p class="video-caption-soft">keep spinning into your future</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 10: I WANT YOU TO LIVE ==================== -->
+    <section class="section-act section-live" id="actLive" aria-label="I want you to live">
+      <div class="container container-reading">
+        <div class="live-header text-center">
+          <span class="act-number">ACT X &bull; THE HEART OF IT</span>
+          <h2 class="live-title-main reveal-text">I don't just want you to succeed.</h2>
+          <h3 class="live-title-sub reveal-text">I want you to live.</h3>
+        </div>
+
+        <div class="live-desires-list">
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to laugh until your stomach hurts and you can't make any sound.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to travel to places with no itinerary.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to eat ridiculous amounts of amazing food without counting a thing.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to see views that make you stop talking and just stare.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to have stupid adventures that turn into our favorite stories.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to have peaceful mornings where the world doesn't ask you for anything.</p>
+          </div>
+          <div class="desire-row reveal-text">
+            <span class="desire-glyph">&bull;</span>
+            <p>I want you to be ridiculously, unapologetically happy.</p>
+          </div>
+        </div>
+
+        <!-- Energetic Mirror Dance Video snippet -->
+        <div class="live-dance-showcase reveal-fade">
+          <div class="dance-video-frame" data-cursor="dance">
+            <video muted autoplay loop playsinline>
+              <source src="images/rutu-dance-mirror.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+
+        <div class="live-conclusion text-center reveal-text">
+          <p class="live-ending-p">And while you're chasing all of it…</p>
+          <h4 class="live-ending-promise">I hope I get to be there.</h4>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 11: PERSONAL LETTER ==================== -->
+    <section class="section-act section-letter" id="actLetter" aria-label="A letter from Hassan">
+      <div class="container">
+        <div class="letter-layout">
+          
+          <div class="letter-photo-col">
+            <div class="letter-photo-frame" data-cursor="look">
+              <img src="images/rutu-traditional-wink.png" alt="Sanskriti winking with traditional bindi" loading="lazy">
+              <div class="letter-photo-note">
+                <span class="note-date">September 2026</span>
+                <span class="note-title">Sanskriti &bull; Rutu</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="letter-paper-col">
+            <div class="editorial-letter">
+              <div class="letter-stamp">
+                <span>FOR RUTU</span>
+              </div>
+              
+              <h3 class="letter-salutation">Rutu,</h3>
+
+              <div class="letter-body">
+                <p>I know how much you carry inside your head. I see how hard you push yourself, how much you study, and how seriously you take your future. You inspire me more than I probably say out loud.</p>
+
+                <p>But today, more than anything, I want you to hear this: <em>You do not have to earn love through achievement.</em> You are already enough, exactly as you are right now.</p>
+
+                <p>I appreciate every little piece of your world that you trust me with. When things feel overwhelming, you don't have to put on a brave face for me. You can just be tired. You can just be confused. I’ll still be right here.</p>
+
+                <p>I feel so lucky that my life crossed paths with yours. I hope this year is gentle with your heart, generous with your dreams, and filled with memories that make you smile until your cheeks hurt.</p>
+
+                <p>Happy Birthday, my favorite person.</p>
+              </div>
+
+              <div class="letter-signoff">
+                <p class="signoff-sub">Always beside you,</p>
+                <p class="signoff-signature">Hassan</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 12: SUNRISE FINALE ==================== -->
+    <section class="section-act section-sunrise theme-sunrise" id="actSunrise" aria-label="Go live your life">
+      <div class="sunrise-glow-atmosphere" aria-hidden="true"></div>
+      <div class="container container-reading text-center">
+        <div class="sunrise-content">
+          <span class="act-number">FINALE</span>
+          
+          <p class="sunrise-lead reveal-text">So, Rutu…</p>
+          
+          <h2 class="sunrise-callout reveal-text">Go live your life.</h2>
+
+          <div class="sunrise-manifesto">
+            <p class="manifesto-line reveal-text">Study hard.</p>
+            <p class="manifesto-line reveal-text">Dream ridiculously.</p>
+            <p class="manifesto-line reveal-text">Build the life you want.</p>
+            <p class="manifesto-line reveal-text manifesto-pause">But remember to look around sometimes.</p>
+          </div>
+
+          <div class="sunrise-core reveal-text">
+            <p class="core-truth">Because life isn't only the destination.</p>
+            <h3 class="core-climax">It's everything that happens on the way there.</h3>
+            <p class="core-reminder">And if you ever forget… I'll remind you.</p>
+          </div>
+
+          <div class="final-birthday-card reveal-fade">
+            <h1 class="grand-birthday-title">Happy Birthday, Rutu.</h1>
+            <p class="grand-subtext">I’m really, really glad you’re here.</p>
+            <div class="grand-divider"></div>
+            <p class="grand-author">&mdash; Hassan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== ACT 13: INTERACTIVE WISH & CANDLE ==================== -->
+    <section class="section-act section-wish" id="actWish" aria-label="Make a wish">
+      <div class="container text-center">
+        <div class="wish-intro" id="wishIntro">
+          <span class="wish-tag">ONE LAST THING</span>
+          <h2 class="wish-prompt-title">Make a wish.</h2>
+          <p class="wish-prompt-sub">Think of something you want from this year. Anything at all.</p>
+          <p class="wish-action-hint">Click the candle to blow it out</p>
+        </div>
+
+        <div class="candle-stage" id="candleStage">
+          <div class="candle-container" id="candleBtn" data-cursor="wish" role="button" tabindex="0" aria-label="Blow out the birthday candle">
+            <div class="candle-flame-wrapper" id="flameWrapper">
+              <div class="flame-glow"></div>
+              <div class="flame-core"></div>
+              <div class="smoke-wisp" id="smokeWisp"></div>
+            </div>
+            <div class="candle-wick"></div>
+            <div class="candle-stick">
+              <div class="candle-wax-highlight"></div>
+            </div>
+            <div class="candle-holder"></div>
+          </div>
+        </div>
+
+        <!-- Post-Blow Revelation Stage -->
+        <div class="wish-reveal-box" id="wishRevealBox" aria-hidden="true">
+          <div class="floating-starlight-memories" id="starlightMemories" aria-hidden="true"></div>
+          <div class="wish-final-message">
+            <h3 class="final-wish-line-1">I hope this year is kind to you.</h3>
+            <h3 class="final-wish-line-2">And I hope you let yourself enjoy it.</h3>
+            <p class="final-love-tag">&hearts; Hassan &amp; Rutu</p>
+            <div class="replay-actions">
+              <button class="btn-replay" id="btnReplay" data-cursor="again">
+                <span>Relive the journey</span>
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 4v6h6M23 20v-6h-6"/><path d="M20.49 9A9 9 0 005.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 013.51 15"/></svg>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- GSAP & ScrollTrigger from Cloudflare CDN -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
